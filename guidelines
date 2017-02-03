@@ -1,0 +1,42 @@
+Angular Guidelines
+All post data should only be stored in memory - done!
+  That is, a page refresh will clear all added posts, and that's OK
+You do not have to make any ajax requests or actually contact the reddit API
+User Stories
+Feel free to Style / theme / rename the app to make it something you might put on your portfolio.
+
+Users can create a post
+
+Users can toggle the "New Post" form - done!
+Users can create posts
+Each post has a title, author, image, and description
+
+//Form Validation - done!
+Users cannot create a new post if any of the inputs are blank - done!
+Fields should only appear invalid once they've tabbed off - done!
+Users cannot click "Create Post" until the form is valid - done!
+
+Users can view posts
+
+Users see the number of comments correctly pluralized
+i.e. "0 comments" or "1 comment"
+Users see posts dynamically reorder according to number of votes
+Users see the post's date/time displayed nicely
+i.e. "Yesterday at 3:09pm", "4 minute ago", etc.
+You will need an external library
+Votes
+
+Users can upvote
+Users can downvote
+But not make it go lower than 0
+Filter
+
+Users can filter based on the post title
+Sort
+
+Users see posts ordered by votes (most first) by default
+Users can sort by Date or by Title
+Comments
+
+Users can toggle comments
+Users can add comments
