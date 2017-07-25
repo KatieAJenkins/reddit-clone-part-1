@@ -10,7 +10,6 @@
     })
 
     function Controller () {
-      // console.log('Made it in Controller');
       const vm = this
       vm.$onInit = onInit
       vm.createPost = createPost
@@ -62,16 +61,14 @@
       }
 
       function createPost () {
-        // console.log("clicked")
+        vm.newComment = {}
         vm.post.time = new Date()
-        // console.log(vm.post.time);
 
         //reset comments
         vm.post.comments = []
 
         //push new post to existing posts array
         vm.posts.push(vm.post)
-        // console.log(vm.posts)
 
         //clear post form once submitted
         delete vm.post
@@ -84,33 +81,25 @@
         vm.showPostFormDiv = false
       }
 
+      // toggle new post button
       function showPostTemplate () {
-        //toggle new post button
-        // console.log('clicked')
         vm.showPostFormDiv = !vm.showPostFormDiv
       }
 
-      vm.newComment = {}
-
       function createComment (post) {
         //post = thisPost aka only create comment on this post
-        // console.log('clicked')
 
         post.comments.push(vm.newComment.body)
-
-        delete vm.newComment
-        // console.log(post.comments);
+        console.log(vm.newComment);
+        delete vm.newComment.body
+        // post.showComment = !post.showComment
       }
 
-      function showCommentForm (thisPost) {
-        // console.log("clicked");
-        // console.log(thisPost.showComment)
-        thisPost.showComment = !thisPost.showComment
+      function showCommentForm (post) {
+        post.showComment = !post.showComment
       }
 
       function setPropertyName(property) {
-        // console.log('clicked')
-        // console.log(property)
         vm.sort = property
 
         if(property == '-votes') {
@@ -127,9 +116,7 @@
       }
 
       function decreaseVote (thisPost) {
-        // console.log('clicked')
         thisPost.votes -= 1
-        // console.log(thisPost.votes)
       }
     } //end of controller
 })();//end of IIFE

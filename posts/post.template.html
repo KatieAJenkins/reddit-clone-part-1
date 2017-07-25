@@ -51,11 +51,11 @@
 <div class="row">
   <div class="col-md-8">
 
-    <!-- <p>pristine form: {{$ctrl.newPostForm.title.$pristine}}</p>
+    <p>pristine form: {{$ctrl.newPostForm.title.$pristine}}</p>
     <p>dirty form: {{$ctrl.newPostForm.title.$dirty}}</p>
-    <p>touched form: {{$ctrl.newPostForm.title.$touched}}</p> -->
+    <p>touched form: {{$ctrl.newPostForm.title.$touched}}</p>
 
-    <form novalidate name = "$ctrl.newPostForm" ng-submit = "$ctrl.createPost()" ng-if="$ctrl.showPostFormDiv === true">
+    <form novalidate name = "$ctrl.newPostForm" ng-submit = "$ctrl.createPost()" ng-if="$ctrl.showPostFormDiv">
 
       <div>
         <label for="title" ng-class = "{'error': $ctrl.newPostForm.title.$invalid && $ctrl.newPostForm.title.$touched}">Title</label>
@@ -66,6 +66,7 @@
           name = "title"
           type = "text"
           ng-model = "$ctrl.post.title"
+
           required>
         <!-- <p>{{$ctrl.post.title}}</p> --><!--testing bindings-->
 
@@ -108,6 +109,7 @@
           name = "imageUrl"
           type = ""
           ng-model = "$ctrl.post.imageUrl"
+          ng-class = "{'error': $ctrl.post.imageUrl.$touched && $ctrl.newPostForm.imageUrl.$invalid}"
           required>
 
         <span ng-show= "$ctrl.newPostForm.imageUrl.$touched && $ctrl.newPostForm.imageUrl.$invalid">Please enter an image</span>
@@ -170,7 +172,6 @@
                   <div class="form-group">
                     <input id="comments"
                       class="form-control"
-                      name = "comments"
                       type = "text"
                       ng-model = "$ctrl.newComment.body">
                   </div>
